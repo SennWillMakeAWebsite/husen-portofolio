@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>🤖 Husen AI</title>
+
+<link rel="stylesheet"
+href="style.css">
+
+</head>
+
+<body>
+
+<section class="ai-page">
+
+<h1>🤖 Husen AI</h1>
+
+<p>
+
+Ngobrol sama AI mini buatan Husen.
+
+</p>
+
+<div class="ai-box">
+
+<div id="chatBox">
+
+<div class="ai-message">
+
+Halo. Aku Husen AI 😭
+
+</div>
+
+</div>
+
+<input
+type="text"
+id="userInput"
+
+placeholder=
+"Tanya sesuatu...">
+
+<button
+onclick="sendMessage()">
+
+Kirim
+
+</button>
+
+</div>
+
+<a
+class="backBtn"
+href="index.html">
+
+⬅ Kembali
+
+</a>
+
+</section>
+
+<script>
+
+function sendMessage(){
+
+let input=
+
+document.getElementById(
+"userInput"
+);
+
+let text=
+input.value
+.toLowerCase();
+
+if(text=="")
+return;
+
+let chat=
+document.getElementById(
+"chatBox"
+);
+
+chat.innerHTML+=
+
+`<div class=
+"user-message">
+
+${text}
+
+</div>`;
+
+let reply="";
+
+if(
+text.includes(
+"halo"
+)
+)
+
+reply=
+"Halooooooo jugaaaaaa 😭";
+
+else if(
+text.includes(
+"siapa kamu"
+)
+)
+
+reply=
+"Aku Husen AI";
+
+else if(
+text.includes(
+"capek" 
+)
+)
+
+reply=
+"Pelan juga progress 🗿";
+
+else if(
+text.includes(
+"semangat"
+)
+)
+
+reply=
+"Kamu lebih kuat dari tugas numpuk 😭🔥";
+
+else
+
+reply=
+"Aku belum sepintar ChatGPT 😭";
+
+chat.innerHTML+=
+
+`<div class=
+"ai-message">
+
+${reply}
+
+</div>`;
+
+input.value="";
+
+chat.scrollTop=
+chat.scrollHeight;
+
+}
+
+</script>
+
+</body>
+
+</html>
+

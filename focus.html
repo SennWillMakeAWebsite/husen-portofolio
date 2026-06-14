@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Focus Space 🚀</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<section class="focus-page">
+
+<h1>🚀 Focus Space</h1>
+
+<p>
+Masuk mode fokus. Gangguan dipersilakan antre.
+</p>
+
+<div class="focus-box">
+
+<h2 id="timer">25:00</h2>
+
+<input
+type="number"
+id="minutesInput"
+placeholder="Masukkan menit">
+
+<br><br>
+
+<button onclick="setCustomTime()">
+Set Waktu
+</button>
+
+<button onclick="startTimer()">
+Start Focus
+</button>
+
+<button onclick="resetTimer()">
+Reset
+</button>
+
+</div>
+
+<a class="backBtn"
+href="index.html">
+
+⬅ Kembali ke Home
+
+</a>
+
+</section>
+
+<script>
+
+let time=1500;
+
+let timerRunning;
+
+const timer=
+document.getElementById(
+"timer"
+);
+
+function updateDisplay(){
+
+let minutes=
+Math.floor(time/60);
+
+let seconds=
+time%60;
+
+timer.innerHTML=
+
+minutes+":"
+
++(seconds<10?
+"0":"")+seconds;
+
+}
+
+function setCustomTime(){
+
+let input=
+document.getElementById(
+"minutesInput"
+).value;
+
+if(input>0){
+
+clearInterval(
+timerRunning
+);
+
+time=input*60;
+
+updateDisplay();
+
+}
+
+}
+
+function startTimer(){
+
+clearInterval(
+timerRunning
+);
+
+timerRunning=
+setInterval(()=>{
+
+time--;
+
+updateDisplay();
+
+if(time<=0){
+
+clearInterval(
+timerRunning
+);
+
+alert(
+"🔥 Fokus selesai"
+);
+
+}
+
+},1000);
+
+}
+
+function resetTimer(){
+
+clearInterval(
+timerRunning
+);
+
+time=1500;
+
+updateDisplay();
+
+}
+
+updateDisplay();
+
+</script>
+
+</body>
+
+</html>
