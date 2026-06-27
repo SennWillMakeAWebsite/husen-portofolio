@@ -2353,3 +2353,27 @@ box-shadow:0 0 25px cyan;
 .tech-card p{
     color:#b8bfd4;
 }
+#achievement{
+padding:120px 10%;
+text-align:center;
+}
+
+.achievement-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+margin-top:40px;
+}
+
+.achievement-card{
+padding:25px;
+background:rgba(255,255,255,.06);
+border-radius:20px;
+backdrop-filter:blur(10px);
+transition:.35s;
+}
+
+.achievement-card:hover{
+transform:translateY(-8px);
+box-shadow:0 0 25px cyan;
+   }
