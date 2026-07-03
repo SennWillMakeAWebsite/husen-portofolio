@@ -1,1 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Senn Hub OS</title>
 
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,Helvetica,sans-serif;
+}
+
+body{
+    background:#050816;
+    color:#fff;
+    overflow:hidden;
+}
+
+/* ==========================
+   Boot Screen
+========================== */
+
+#boot{
+    position:fixed;
+    inset:0;
+    background:#02040d;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    z-index:9999;
+}
+
+.logo{
+    font-size:55px;
+    font-weight:bold;
+    color:#00e5ff;
+    text-shadow:
+        0 0 15px #00e5ff,
+        0 0 40px cyan;
+}
+
+.version{
+    margin-top:10px;
+    color:#9cb3ff;
+}
+
+.loading{
+    width:320px;
+    height:10px;
+    background:#111;
+    margin-top:35px;
+    border-radius:30px;
+    overflow:hidden;
+}
+
+.bar{
+    width:0%;
+    height:100%;
+    background:#00e5ff;
+    box-shadow:0 0 25px cyan;
+    transition:.05s;
+}
+
+.status{
+    margin-top:20px;
+    color:#7ea4ff;
+    font-size:14px;
+}
+
+/* ==========================
+   Desktop
+========================== */
+
+#desktop{
+    display:none;
+    width:100%;
+    height:100vh;
+    background:
+    radial-gradient(circle at top,#0d1b4f,#050816 70%);
+}
+
+.topbar{
+
+height:60px;
+
+background:rgba(255,255,255,.05);
+
+backdrop-filter:blur(12px);
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+padding:0 25px;
+
+border-bottom:1px solid rgba(255,255,255,.1);
+
+}
+
+.brand{
+
+font-size:22px;
+
+font-weight:bold;
+
+color:#00e5ff;
+
+}
+
+.clock{
+
+font-size:18px;
+
+color:white;
+
+}
+
+.center{
+
+height:calc(100vh - 60px);
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+flex-direction:column;
+
+}
+
+.center h1{
+
+font-size:65px;
+
+color:#00e5ff;
+
+text-shadow:0 0 20px cyan;
+
+}
+
+.center p{
+
+margin-top:15px;
+
+font-size:18px;
+
+color:#bbb;
+
+}
+
+.launch{
+
+margin-top:40px;
+
+padding:16px 35px;
+
+border:none;
+
+border-radius:15px;
+
+background:#00e5ff;
+
+color:#000;
+
+font-size:18px;
+
+font-weight:bold;
+
+cursor:pointer;
+
+transition:.3s;
+
+}
+
+.launch:hover{
+
+transform:scale(1.08);
+
+box-shadow:0 0 25px cyan;
+
+}
+</style>
+</head>
+
+<body>
+
+<div id="boot">
+
+<div class="logo">SENN HUB OS</div>
+
+<div class="version">
+Version 1.0 Developer Preview
+</div>
+
+<div class="loading">
+
+<div class="bar"></div>
+
+</div>
+
+<div class="status" id="status">
+Initializing...
+</div>
+
+</div>
+
+<div id="desktop">
+
+<div class="topbar">
+
+<div class="brand">
+Senn Hub OS
+</div>
+
+<div class="clock" id="clock">
+00:00:00
+</div>
+
+</div>
+
+<div class="center">
+
+<h1>Welcome Founder</h1>
+
+<p>Cyber Operating System</p>
+
+<button class="launch">
+Open Dashboard
+</button>
+
+</div>
+
+</div>
+
+<script>
+
+const status=document.getElementById("status");
+
+const boot=document.getElementById("boot");
+
+const desktop=document.getElementById("desktop");
+
+const bar=document.querySelector(".bar");
+
+const text=[
+"Loading Kernel...",
+"Loading Security...",
+"Loading Network...",
+"Loading Interface...",
+"Launching Senn Hub OS..."
+];
+
+let p=0;
+
+let i=0;
+
+const loading=setInterval(()=>{
+
+p++;
+
+bar.style.width=p+"%";
+
+if(p%20===0&&i<text.length){
+
+status.innerHTML=text[i];
+
+i++;
+
+}
+
+if(p>=100){
+
+clearInterval(loading);
+
+boot.style.display="none";
+
+desktop.style.display="block";
+
+}
+
+},35);
+
+function clock(){
+
+const now=new Date();
+
+document.getElementById("clock").innerHTML=
+
+now.toLocaleTimeString();
+
+}
+
+setInterval(clock,1000);
+
+clock();
+
+</script>
+
+</body>
+</html>
