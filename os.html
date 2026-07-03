@@ -6,17 +6,35 @@
 <title>Senn Hub OS</title>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap');
+
+:root{
+    --bg:#050816;
+    --bg2:#0d1b4f;
+    --cyan:#00e5ff;
+    --white:#ffffff;
+    --glass:rgba(255,255,255,.05);
+    --border:rgba(255,255,255,.12);
+    --shadow:0 0 25px rgba(0,229,255,.35);
+}
+    
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:Arial,Helvetica,sans-serif;
+    font-family:'Poppins',sans-serif;
 }
 
 body{
-    background:#050816;
-    color:#fff;
+    background:
+    linear-gradient(rgba(0,229,255,.05) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(0,229,255,.05) 1px,transparent 1px),
+    var(--bg);
+
+    background-size:40px 40px;
+    color:var(--white);
     overflow:hidden;
+    animation:gridMove 18s linear infinite;
 }
 
 /* ==========================
@@ -35,12 +53,13 @@ body{
 }
 
 .logo{
+    font-family:'Orbitron',sans-serif;
     font-size:55px;
     font-weight:bold;
-    color:#00e5ff;
+    color:var(--cyan);
     text-shadow:
-        0 0 15px #00e5ff,
-        0 0 40px cyan;
+        0 0 15px var(--cyan),
+        0 0 40px var(--cyan);
 }
 
 .version{
@@ -60,8 +79,8 @@ body{
 .bar{
     width:0%;
     height:100%;
-    background:#00e5ff;
-    box-shadow:0 0 25px cyan;
+    background:var(--cyan);
+    box-shadow:0 0 25px var(--cyan);
     transition:.05s;
 }
 
@@ -80,7 +99,7 @@ body{
     width:100%;
     height:100vh;
     background:
-    radial-gradient(circle at top,#0d1b4f,#050816 70%);
+radial-gradient(circle at top,var(--bg2),var(--bg) 70%);
 }
 
 .topbar{
@@ -104,20 +123,17 @@ border-bottom:1px solid rgba(255,255,255,.1);
 }
 
 .brand{
-
-font-size:22px;
-
-font-weight:bold;
-
-color:#00e5ff;
-
+    font-family:'Orbitron',sans-serif;
+    font-size:22px;
+    font-weight:bold;
+    color:var(--cyan);
 }
 
 .clock{
 
 font-size:18px;
 
-color:white;
+color:var(--white);
 
 }
 
@@ -139,9 +155,9 @@ flex-direction:column;
 
 font-size:65px;
 
-color:#00e5ff;
+color:var(--cyan);
 
-text-shadow:0 0 20px cyan;
+text-shadow:0 0 20px var(--cyan);
 
 }
 
@@ -165,7 +181,7 @@ border:none;
 
 border-radius:15px;
 
-background:#00e5ff;
+background:var(--cyan);
 
 color:#000;
 
@@ -183,9 +199,16 @@ transition:.3s;
 
 transform:scale(1.08);
 
-box-shadow:0 0 25px cyan;
-
+box-shadow:0 0 25px var(--cyan);
 }
+ @keyframes gridMove{
+    from{
+        background-position:0 0;
+    }
+    to{
+        background-position:40px 40px;
+    }
+ }
 </style>
 </head>
 
