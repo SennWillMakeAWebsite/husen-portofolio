@@ -2494,3 +2494,91 @@ line-height:1.7;
         grid-template-columns: 1fr;
     }
 }
+/* Developer Capabilities */
+
+.skills-intro {
+    max-width: 650px;
+    margin: 15px auto 40px;
+    line-height: 1.7;
+    opacity: 0.8;
+}
+
+.capabilities-grid {
+    max-width: 1000px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+}
+
+.capability-card {
+    padding: 30px;
+    text-align: left;
+
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+
+    border-radius: 20px;
+
+    transition: 
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        background 0.3s ease;
+}
+
+.capability-card:hover {
+    transform: translateY(-7px);
+    border-color: rgba(100, 200, 255, 0.5);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.capability-icon {
+    font-size: 32px;
+    margin-bottom: 15px;
+}
+
+.capability-card h3 {
+    font-size: 20px;
+    margin-bottom: 12px;
+}
+
+.capability-card p {
+    font-size: 14px;
+    line-height: 1.7;
+    opacity: 0.8;
+    margin-bottom: 20px;
+}
+
+.capability-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+}
+
+.capability-tags span {
+    padding: 7px 11px;
+
+    font-size: 12px;
+
+    border-radius: 8px;
+
+    background: rgba(100, 200, 255, 0.1);
+
+    border: 1px solid rgba(100, 200, 255, 0.15);
+}
+
+
+/* Mobile */
+
+@media (max-width: 700px) {
+
+    .capabilities-grid {
+        grid-template-columns: 1fr;
+        padding: 0 20px;
+    }
+
+    .capability-card {
+        padding: 25px;
+    }
+
+}
